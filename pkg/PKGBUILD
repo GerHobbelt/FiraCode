@@ -1,0 +1,43 @@
+# Maintainer: Jiachen YANG <farseerfc@gmail.com>
+# Contributor: Henrik Hodne <henrik@hodne.io>
+# Contributor: Ariel AxionL <axionl@aosc.io>
+# Contributor: Joonmo Yang <dev@remagpie.com>
+# AUR Maintainer: Stefan Husmann <stefan-husmann@t-online.de>
+
+pkgbase=refira-code
+pkgname=('ttf-refira-code')
+pkgver=6.3
+pkgrel=2
+pkgdesc="Monospaced font with programming ligatures (Customized)"
+arch=('any')
+url='https://github.com/remagpie/FiraCode'
+license=('custom:OFL')
+depends=()
+source=("$pkgbase-$pkgver.zip::https://github.com/remagpie/FiraCode/releases/download/${pkgver}/ReFiraCode.zip"
+        "LICENSE::https://raw.githubusercontent.com/remagpie/FiraCode/${pkgver}/LICENSE")
+sha512sums=('920100e2f2bf28a8439c52b8fa249c35ec86874340cc8c36fd9ebc927829d47e6206c31e5af080b9ee3bfd4f08b26a10a1cf2150d9ef4d3d0ce326b7b76c5175'
+            'bee6615aa2c8771ea9685a6de630eceb554c22920fd56379be460f461b27081de2d12e04298e4aecc76b733465730f3f3b602867abbc2df53105eb8ccf5475d2')
+
+function _package {
+    local ext="${1%%-*}"
+    local fonts=(ReFiraCode*."$ext")
+    local installdir="${ext^^}"
+
+    # Prepare destination directory
+    install -dm755 "$pkgdir/usr/share/fonts/$installdir"
+
+    # Install fonts
+    local font
+    for font in "${fonts[@]}"; do
+        install -m644 "$font" "$pkgdir/usr/share/fonts/$installdir"
+    done
+
+    # Install LICENSE
+    install -Dm644 "$srcdir/LICENSE" "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+}
+
+for _pkgname in ${pkgname[@]}; do
+    eval "function package_$_pkgname() { _package $_pkgname; }"
+done
+
+# vim:set ts=8 sw=4 et:

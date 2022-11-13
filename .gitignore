@@ -13,3 +13,5 @@ distr/*/
 *.glyphs
 !FiraCode.glyphs
 
+/pkg/*
+!/pkg/PKGBUILD

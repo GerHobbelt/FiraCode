@@ -1,0 +1,8 @@
+Pillow==7.2.0
+fontbakery==0.8.0
+fontmake==3.3.0
+gftools==0.9.21
+idna==2.8
+pycairo==1.20.1
+requests==2.21.0
+urllib3==1.24.1

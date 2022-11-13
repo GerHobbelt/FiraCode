@@ -16,7 +16,7 @@ default_weights=( "Light" "Regular" "Retina" "Medium" "SemiBold" "Bold" )
 weights=( "${args[@]:-"${default_weights[@]}"}" )
 
 for weight in "${weights[@]}"; do
-	file="${dir}/FiraCode-${weight}.ttf"
+	file="${dir}/ReFiraCode-${weight}.ttf"
 
 	echo "=============="
 	echo
@@ -24,9 +24,6 @@ for weight in "${weights[@]}"; do
 	echo
 
 	fontmake -g "${glyphs_file}" -o ttf --output-path "${file}" -i ".* ${weight}"
-
-	echo "  [i] Fixing DSIG in ${file}"
-	gftools fix-dsig --autofix "${file}"
 
 	echo "  [i] TTFautohint ${file}"
 	ttfautohint --no-info --ignore-restrictions "${file}" "${file}.hinted"

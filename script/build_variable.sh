@@ -7,7 +7,7 @@ family_name=${FIRACODE_FAMILY_NAME:-"Fira Code"}
 glyphs_file=${FIRACODE_GLYPHS_FILE:-"FiraCode.glyphs"}
 
 dir="distr/variable_ttf/${family_name}"
-file="${dir}/FiraCode-VF.ttf"
+file="${dir}/ReFiraCode-VF.ttf"
 
 echo "=============="
 echo
@@ -26,18 +26,12 @@ awk '/name = Retina;/ { print; print "exports = 0;"; next }1' \
 fontmake -g "${vf_glyphs}" -o variable --output-path "${file}"
 rm -f "${vf_glyphs}"
 
-# fix variable font metadata – very important
-gftools fix-vf-meta "${file}"
-mv "${file}.fix" "${file}"
-
 # other fixes for metadata and hinting
 gftools fix-nonhinting "${file}" "${file}.fix"
 mv "${file}.fix" "${file}"
 
 gftools fix-gasp --autofix "${file}"
 mv "${file}.fix" "${file}"
-
-gftools fix-dsig --autofix "${file}"
 
 # cleanup of temp files
 rm -rf "${dir}/"*-gasp.ttf

@@ -24,4 +24,4 @@ for ttf in "${ttf_dir}/"*.ttf; do
 done
 
 mv "${ttf_dir}/"*.woff "${woff_dir}"
-rm -f "${woff_dir}/FiraCode-Retina.woff"
+rm -f "${woff_dir}/ReFiraCode-Retina.woff"

@@ -35,7 +35,8 @@ jobs:
       run: python3 ./script/update_version.py
     - run: ./script/build.sh
     - run: echo "hash=$(git rev-parse --short $GITHUB_SHA)" >> $GITHUB_ENV
-    - uses: actions/upload-artifact@main
+    - name: "Offer upload artifact (fonts ZIP file) for download"
+      uses: actions/upload-artifact@main
       with:
         name: Fira_Code_${{ env.hash }}
         path: distr

@@ -16,6 +16,6 @@ def update_version(major, minor, src):
 
 if __name__ == '__main__':
   os.chdir(common.root)
-  [ major, minor, , *_ ] = common.version().split(".")
+  [ major, minor, *_ ] = common.version().split(".")
   update_version(major, minor, 'FiraCode.glyphs')
   sys.exit(0)

@@ -12,7 +12,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    # container: GerHobbelt/FiraCode:latest
     steps:
     - uses: actions/checkout@main
     - name: Set up Python

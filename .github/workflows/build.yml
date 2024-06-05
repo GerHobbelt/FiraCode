@@ -1,5 +1,6 @@
 #
-# :-S   Oh RLY? do we have to edit the build.yml AND set a git tag (label) to trigger the github build to pick up the new git tag / label?!
+# :-S   Do we have to edit the build.yml AND set a git tag (label) to trigger the github build to pick up the new git tag / label?!
+# --> nope. The label has to match the format specified below: major.minor.rev. I previously expected it to be a real regex, but it ain't; the '.' is a literal '.' always.
 #
 
 on:

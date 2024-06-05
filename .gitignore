@@ -1,4 +1,3 @@
-*.zip
 target
 clojure/*.edn
 .cpcache
@@ -8,8 +7,6 @@ instance_ufo
 venv
 .DS_Store
 *.numbers
-
-distr/*/
 
 *.glyphs
 !FiraCode.glyphs

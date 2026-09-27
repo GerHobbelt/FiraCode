@@ -56,7 +56,7 @@ In action:
 
 <img src="./extras/progress.gif" width="560">
 
-We hope more programming fonts will adopt this convention and ship their own versions.
+We hope more programming fonts will adopt this convention and ship their own versions. Implementation detail: there is no way for programs to detect whether a font has progress bar glyphs at U+EE00, so they need to decide what to output without knowing if it will be rendered properly or not. We propose a new environment variable, `UNICODE_PROGRESS_BAR=true`, to use as a heuristic. If present, it’s safe to assume U+EE00..EE0B will be rendered properly.
 
 Unicode coverage makes Fira Code a great choice for mathematical writing:
 
@@ -140,7 +140,7 @@ Unicode coverage makes Fira Code a great choice for mathematical writing:
 | **Xcode** (8.0+, otherwise [with plugin](https://github.com/robertvojta/LigatureXcodePlugin)) |
 | **Xi** |
 | Probably work: **Smultron, Vico** | Under question: **Code::Blocks IDE** |
-| **Zed** ([instructions](https://zed.dev/docs/configuring-zed#buffer-font-family)) | |
+| **Zed** ([instructions](https://zed.dev/docs/reference/all-settings#buffer-font-family)) | |
 
 ### Terminal compatibility list
 
